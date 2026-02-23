@@ -20,12 +20,12 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "오늘나가?",
-    "url": "https://rifuropepe.github.io/openclawtest/weather-money-site/",
+    "url": "https://weatherproject-phi.vercel.app/",
     "description": "현재 날씨와 체감 정보를 기반으로 생활 준비물을 안내하는 날씨 웹서비스",
     "inLanguage": "ko-KR",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://rifuropepe.github.io/openclawtest/weather-money-site/?city={city}",
+      "target": "https://weatherproject-phi.vercel.app/?city={city}",
       "query-input": "required name=city"
     }
   }
@@ -36,7 +36,7 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "오늘나가?",
-    "url": "https://rifuropepe.github.io/openclawtest/weather-money-site/",
+    "url": "https://weatherproject-phi.vercel.app/",
     "description": "날씨 기반 생활 가이드 서비스"
   }
   </script>
@@ -46,27 +46,32 @@
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "오늘나가? 메인",
-    "url": "https://rifuropepe.github.io/openclawtest/weather-money-site/",
+    "url": "https://weatherproject-phi.vercel.app/",
     "description": "오늘 날씨와 준비물을 빠르게 확인하는 메인 페이지",
     "isPartOf": {
       "@type": "WebSite",
       "name": "오늘나가?",
-      "url": "https://rifuropepe.github.io/openclawtest/weather-money-site/"
+      "url": "https://weatherproject-phi.vercel.app/"
     }
   }
   </script>
 </head>
 <body>
   <header class="hero">
+    <img class="hero-bg" src="./assets/hero-weather.svg" alt="" />
+    <div class="hero-overlay"></div>
     <div class="hero-inner">
       <p class="eyebrow">오늘 기준 실사용 날씨 가이드</p>
-      <h1>오늘 날씨, 이렇게 준비하면 덜 피곤합니다</h1>
-      <p class="sub">현재 날씨 기준으로 지금 필요한 준비물만 간단히 알려드릴게요.</p>
+      <h1>지금 필요한 준비만, 감각적으로</h1>
+      <p class="sub">비·체감·바람을 한 화면에서 보고, 이동 전에 딱 필요한 것만 챙기세요.</p>
+      <div class="hero-pills">
+        <span>실시간 데이터</span><span>모바일 최적화</span><span>생활 밀착 가이드</span>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="search card">
+    <section class="search card glass">
       <input id="cityInput" placeholder="도시 입력 (예: Seoul, Busan)" />
       <button id="searchBtn">지금 날씨 확인</button>
       <small id="status">기본 지역: Seoul</small>
@@ -77,6 +82,15 @@
       <div id="nowWeather">불러오는 중...</div>
       <div id="umbrellaBadge" class="badge">우산 필요도 계산 중...</div>
       <p id="advice" class="advice">오늘 상황에 맞는 준비 가이드를 계산 중입니다.</p>
+    </section>
+
+    <section class="insights card">
+      <h2>오늘 포인트</h2>
+      <ul class="insight-list">
+        <li><svg><use href="./assets/weather-icons.svg#i-rain"></use></svg><span>강수/바람 동시 체크</span></li>
+        <li><svg><use href="./assets/weather-icons.svg#i-sun"></use></svg><span>체감온도 기반 준비</span></li>
+        <li><svg><use href="./assets/weather-icons.svg#i-wind"></use></svg><span>이동 시간대 피로 최소화</span></li>
+      </ul>
     </section>
 
     <section class="hourly card">

@@ -1,0 +1,31 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B3A67"/>
+      <stop offset="0.45" stop-color="#4C6FFF"/>
+      <stop offset="1" stop-color="#9AD7FF"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1180 160) rotate(90) scale(220)">
+      <stop stop-color="#FFF8CC"/>
+      <stop offset="1" stop-color="#FFF8CC" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1180" cy="160" r="220" fill="url(#sun)"/>
+  <g opacity="0.28" fill="#fff">
+    <circle cx="220" cy="170" r="44"/><circle cx="270" cy="170" r="36"/><circle cx="182" cy="188" r="30"/>
+    <circle cx="540" cy="210" r="52"/><circle cx="602" cy="210" r="38"/><circle cx="500" cy="228" r="32"/>
+  </g>
+  <g opacity="0.2" stroke="#D5E3FF" stroke-width="2">
+    <path d="M180 660C290 620 360 610 470 650"/>
+    <path d="M420 700C520 660 620 660 720 700"/>
+    <path d="M760 650C900 610 1020 620 1160 670"/>
+  </g>
+  <g fill="#fff" opacity="0.8">
+    <rect x="980" y="540" width="360" height="220" rx="28"/>
+  </g>
+  <g fill="#26345E">
+    <text x="1020" y="610" font-size="36" font-family="Pretendard, Noto Sans KR, sans-serif" font-weight="700">오늘 준비 가이드</text>
+    <text x="1020" y="658" font-size="24" font-family="Pretendard, Noto Sans KR, sans-serif">비/체감/바람 기준 실전 조언</text>
+  </g>
+</svg>

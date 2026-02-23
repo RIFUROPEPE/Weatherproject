@@ -11,5 +11,5 @@
 - [x] llms.txt + /.well-known/llms.txt
 - [x] robots.txt / sitemap.xml
 - [ ] 모바일/데스크탑 최종 QA
-- [ ] 실제 도메인 반영(example.com 치환)
-- [ ] 배포 URL 확정
+- [x] 실제 도메인 반영(example.com 치환)
+- [x] 배포 URL 확정 (https://weatherproject-phi.vercel.app/)
