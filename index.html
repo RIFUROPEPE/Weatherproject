@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘나가? | 수익형 날씨 웹 MVP</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>오늘나가?</h1>
+    <p>지금 나갈지, 우산 챙길지 5초 판단</p>
+  </header>
+
+  <main class="container">
+    <section class="search card">
+      <input id="cityInput" placeholder="도시 입력 (예: Seoul, Busan)" />
+      <button id="searchBtn">검색</button>
+      <small id="status">기본 지역: Seoul</small>
+    </section>
+
+    <section class="now card">
+      <h2>현재 날씨</h2>
+      <div id="nowWeather">불러오는 중...</div>
+      <div id="umbrellaBadge" class="badge">우산 필요도 계산 중...</div>
+      <div class="ad-slot">[광고 슬롯 A]</div>
+    </section>
+
+    <section class="hourly card">
+      <h2>24시간 예보</h2>
+      <ul id="hourlyList"></ul>
+    </section>
+
+    <section class="daily card">
+      <h2>7일 요약</h2>
+      <ul id="dailyList"></ul>
+      <div class="affiliate">
+        <strong>제휴 추천:</strong>
+        <a href="#" target="_blank">우산 베스트 상품 보기</a>
+      </div>
+    </section>
+
+    <section class="premium card">
+      <h2>프리미엄</h2>
+      <p>광고 제거 + 출근 전 고급 알림 (월 2,900원)</p>
+      <button>프리미엄 대기 등록</button>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
