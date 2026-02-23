@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rifuropepe.github.io/openclawtest/weather-money-site/sitemap.xml
+Sitemap: https://weatherproject-phi.vercel.app/sitemap.xml
