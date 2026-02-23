@@ -3,27 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>오늘나가? | 수익형 날씨 웹 MVP</title>
+  <title>오늘나가? | 지금 필요한 날씨 준비만 빠르게</title>
+  <meta name="description" content="현재 날씨, 체감온도, 강수확률을 바탕으로 오늘 필요한 준비물을 빠르게 안내합니다." />
+  <meta property="og:title" content="오늘나가? | 지금 필요한 날씨 준비만 빠르게" />
+  <meta property="og:description" content="비·한파·폭염·미세먼지 상황별로 오늘 필요한 준비를 안내하는 날씨 서비스" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://example.com" />
   <link rel="stylesheet" href="./styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "오늘나가?",
+    "url": "https://example.com",
+    "description": "현재 날씨와 체감 정보를 기반으로 생활 준비물을 안내하는 날씨 웹서비스",
+    "inLanguage": "ko-KR",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://example.com/?city={city}",
+      "query-input": "required name=city"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "오늘나가?",
+    "url": "https://example.com",
+    "description": "날씨 기반 생활 가이드 서비스"
+  }
+  </script>
 </head>
 <body>
-  <header class="topbar">
-    <h1>오늘나가?</h1>
-    <p>지금 나갈지, 우산 챙길지 5초 판단</p>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">오늘 기준 실사용 날씨 가이드</p>
+      <h1>오늘 날씨, 이렇게 준비하면 덜 피곤합니다</h1>
+      <p class="sub">현재 날씨 기준으로 지금 필요한 준비물만 간단히 알려드릴게요.</p>
+    </div>
   </header>
 
   <main class="container">
     <section class="search card">
       <input id="cityInput" placeholder="도시 입력 (예: Seoul, Busan)" />
-      <button id="searchBtn">검색</button>
+      <button id="searchBtn">지금 날씨 확인</button>
       <small id="status">기본 지역: Seoul</small>
     </section>
 
     <section class="now card">
-      <h2>현재 날씨</h2>
+      <h2>현재 날씨 요약</h2>
       <div id="nowWeather">불러오는 중...</div>
       <div id="umbrellaBadge" class="badge">우산 필요도 계산 중...</div>
-      <div class="ad-slot">[광고 슬롯 A]</div>
+      <p id="advice" class="advice">오늘 상황에 맞는 준비 가이드를 계산 중입니다.</p>
     </section>
 
     <section class="hourly card">
@@ -35,17 +71,14 @@
       <h2>7일 요약</h2>
       <ul id="dailyList"></ul>
       <div class="affiliate">
-        <strong>제휴 추천:</strong>
-        <a href="#" target="_blank">우산 베스트 상품 보기</a>
+        <strong>오늘 필요한 준비물</strong>
+        <p>필요 없는 옵션은 빼고, 지금 날씨에 맞는 실사용 아이템만 골랐어요.</p>
+        <a href="#" target="_blank" rel="nofollow sponsored">오늘 날씨 기준 추천 보기</a>
       </div>
     </section>
-
-    <section class="premium card">
-      <h2>프리미엄</h2>
-      <p>광고 제거 + 출근 전 고급 알림 (월 2,900원)</p>
-      <button>프리미엄 대기 등록</button>
-    </section>
   </main>
+
+  <footer class="footnote">※ 제휴 링크가 포함될 수 있으나, 추천 기준은 동일합니다.</footer>
 
   <script src="./app.js"></script>
 </body>
