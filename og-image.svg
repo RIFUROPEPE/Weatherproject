@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="오늘나가? 오늘 날씨 준비 가이드">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="80" y="220" font-size="84" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="700" fill="#ffffff">오늘나가?</text>
+  <text x="80" y="315" font-size="44" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" fill="#e0f2fe">오늘 날씨, 이렇게 준비하면 덜 피곤합니다</text>
+  <text x="80" y="390" font-size="34" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" fill="#dbeafe">현재 날씨 · 체감온도 · 강수확률 기반 실사용 가이드</text>
+</svg>

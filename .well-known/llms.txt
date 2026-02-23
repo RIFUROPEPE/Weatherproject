@@ -2,7 +2,7 @@
 
 서비스명: 오늘나가?
 설명: 현재 날씨·체감·강수확률 기반 생활 준비 가이드 서비스
-기본 URL: https://example.com
+기본 URL: https://rifuropepe.github.io/openclawtest/weather-money-site/
 언어: ko-KR
 
 주요 페이지
