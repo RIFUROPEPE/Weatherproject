@@ -32,6 +32,7 @@ function buildCityUI(){
     chip.dataset.query=c.query;
     cityPreset.appendChild(chip);
   });
+  citySelect.value='Seoul';
   selectChip('Seoul');
 }
 
@@ -131,8 +132,9 @@ async function loadWeather(lat,lon,label){
   statusEl.textContent=`${label} 기준 업데이트 완료`;
 }
 
-async function searchCity(){
-  const city=citySelect.value || 'Seoul';
+async function searchCity(forcedCity){
+  const city=(forcedCity || citySelect.value || 'Seoul').trim();
+  citySelect.value=city;
   selectChip(city);
   try{
     const g=await geocode(city);
@@ -140,6 +142,6 @@ async function searchCity(){
   }catch(e){ statusEl.textContent=e.message; }
 }
 
-document.getElementById('searchBtn').addEventListener('click',searchCity);
+document.getElementById('searchBtn').addEventListener('click',()=>searchCity());
 buildCityUI();
-searchCity();
+searchCity('Seoul');
