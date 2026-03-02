@@ -6,11 +6,14 @@ const kpiWind=document.getElementById('kpiWind');
 const badgeEl=document.getElementById('umbrellaBadge');
 const adviceEl=document.getElementById('advice');
 const signalGrid=document.getElementById('signalGrid');
-const hourlyChart=document.getElementById('hourlyChart');
 const dailyCards=document.getElementById('dailyCards');
 const productCards=document.getElementById('productCards');
 const citySelect=document.getElementById('citySelect');
 const cityPreset=document.getElementById('cityPreset');
+const tempAxis=document.getElementById('tempAxis');
+const rainAxis=document.getElementById('rainAxis');
+const tempChart=document.getElementById('tempChart');
+const rainChart=document.getElementById('rainChart');
 
 const presetCities=[
   {label:'서울',query:'Seoul'},
@@ -72,18 +75,47 @@ function renderSignals({temp,apparent,rainProb,wind}){
   });
 }
 
-function renderHourlyChart(hourly){
-  hourlyChart.innerHTML='';
-  const temps=hourly.temperature_2m.slice(0,24);
-  const rains=hourly.precipitation_probability.slice(0,24);
-  const tMin=Math.min(...temps), tMax=Math.max(...temps);
+function renderTempLineChart(hourly){
+  const temps = hourly.temperature_2m.slice(0,24);
+  const times = hourly.time.slice(0,24).map(t=>t.slice(11,13));
+  const minT = Math.min(...temps, 0);
+  const maxT = Math.max(...temps, 0);
+  const range = (maxT - minT) || 1;
+
+  tempAxis.innerHTML = `<span>${Math.round(minT)}°</span><span>0°</span><span>${Math.round(maxT)}°</span>`;
+
+  const points = temps.map((t,i)=>{
+    const x = (i/(temps.length-1))*100;
+    const y = 100 - ((t-minT)/range)*100;
+    return `${x},${y}`;
+  }).join(' ');
+
+  const zeroY = 100 - ((0-minT)/range)*100;
+
+  tempChart.innerHTML = `
+    <div class='zero-line' style='top:${zeroY}%'></div>
+    <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
+      <polyline fill='none' stroke='#8db3ff' stroke-width='1.8' points='${points}' />
+    </svg>
+    <div class='xlabels'>
+      <span>${times[0]}시</span><span>${times[6]}시</span><span>${times[12]}시</span><span>${times[18]}시</span><span>${times[23]}시</span>
+    </div>
+  `;
+}
+
+function renderRainBarChart(hourly){
+  const rains = hourly.precipitation_probability.slice(0,24);
+  const times = hourly.time.slice(0,24).map(t=>t.slice(11,13));
+
+  rainAxis.innerHTML = '<span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>';
+  rainChart.innerHTML = '';
+
   for(let i=0;i<24;i+=2){
-    const t=temps[i], r=rains[i], time=hourly.time[i].slice(11,13);
-    const tH=((t-tMin)/(tMax-tMin||1))*90+8;
-    const rH=(r/100)*90+6;
-    const bar=document.createElement('div'); bar.className='bar';
-    bar.innerHTML=`<div class='temp' style='height:${tH}px'></div><div class='rain' style='height:${rH}px'></div><small>${time}시</small>`;
-    hourlyChart.appendChild(bar);
+    const bar=document.createElement('div');
+    bar.className='bar';
+    bar.style.height=`${Math.max(4, rains[i]*1.4)}px`;
+    bar.innerHTML=`<span>${times[i]}</span>`;
+    rainChart.appendChild(bar);
   }
 }
 
@@ -125,7 +157,8 @@ async function loadWeather(lat,lon,label){
 
   adviceEl.textContent=buildAdvice({temp:c.temperature_2m,apparent:c.apparent_temperature,rainProb,wind:c.wind_speed_10m});
   renderSignals({temp:c.temperature_2m,apparent:c.apparent_temperature,rainProb,wind:c.wind_speed_10m});
-  renderHourlyChart(d.hourly);
+  renderTempLineChart(d.hourly);
+  renderRainBarChart(d.hourly);
   renderDailyCards(d.daily);
   renderProducts({rainProb,temp:c.temperature_2m,apparent:c.apparent_temperature});
 

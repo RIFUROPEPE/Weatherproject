@@ -56,8 +56,18 @@
 
     <section class="hourly card">
       <h2>24시간 추이</h2>
-      <p class="chart-legend"><span class="dot t"></span>온도(°C) <span class="dot r"></span>강수확률(%)</p>
-      <div id="hourlyChart" class="chart-bars"></div>
+
+      <div class="chart-block">
+        <h3>온도(°C)</h3>
+        <div class="axis-labels" id="tempAxis"></div>
+        <div id="tempChart" class="line-chart"></div>
+      </div>
+
+      <div class="chart-block">
+        <h3>강수확률(%)</h3>
+        <div class="axis-labels" id="rainAxis"></div>
+        <div id="rainChart" class="bar-chart"></div>
+      </div>
     </section>
 
     <section class="daily card">
